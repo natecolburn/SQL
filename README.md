@@ -1,2 +1,12 @@
 # SQL
-A collection of SQL queries demonstrating analytical techniques, joins, aggregations, and real-world problem solving using a sample insurance-related database schema.
+
+This repository contains a collection of SQL queries built from a sample insurance-based dataset. Each query demonstrates common data analysis techniques used in real-world scenarios.
+
+---
+
+### 📂 Find-accounts-with-more-than-one-plan.sql
+
+**Description:**  
+Returns a list of accounts that are associated with more than one plan. Useful for identifying clients with multiple policy relationships.
+
+================================================================================================================================================================================================
