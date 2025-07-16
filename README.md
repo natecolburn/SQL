@@ -21,3 +21,32 @@ This SQL file includes examples of how to manage data within the `nyins.PlanSpli
 - **Delete a specific PlanSplit row**
 - **Update a PlanSplit percentage**
 - **Insert a new PlanSplit record**
+
+========================================================================================================================
+
+## 📂 plan_splits_with_house_account.sql
+
+This script ensures every plan in `PlanSplits` includes a "HOUSE" account (EmployeeId 16) so that all splits total exactly 100%.
+
+We remove existing HOUSE rows first because not all of them are correct — some don't fill the full gap to 100%. Then we calculate the true remainder per plan and re-add HOUSE with the correct value.
+
+---
+
+### What It Does
+- Removes current HOUSE rows.
+- Sums remaining splits per plan.
+- Re-adds HOUSE:
+  - If splits exist → fills the gap.
+  - If no splits → HOUSE gets 100%.
+- Returns all splits, now totaling 100% per plan.
+
+---
+
+### Key CTEs
+- `RemoveHouse`: Excludes existing HOUSE rows.
+- `HouseInsert`: Adds correct HOUSE entry per plan.
+
+---
+
+### Output
+PlanId, PlanName, EmployeeId, FirstName, LastName, SplitPercentage, EffectiveDate
